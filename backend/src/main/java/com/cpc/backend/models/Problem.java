@@ -8,7 +8,6 @@ import jakarta.persistence.*;
 public class Problem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
     Long id;
     @Column
     String title;
