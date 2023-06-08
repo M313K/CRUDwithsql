@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  angular:
+    build:
+      context: ./frontend
+    ports:
+      - 4200:80
+    networks:
+      - my-network
+
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=m123
+      - MYSQL_DATABASE=cpc
+    container_name: mysql
+    ports:
+      - 3306:3306
+    networks:
+      - my-network
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    #command: --init-file /docker-entrypoint-initdb.d/init.sql
+    
+
+  spring-boot:
+    build:
+      context: ./backend
+    ports:
+      - 8080:8080
+    networks:
+      - my-network
+    depends_on:
+      - mysql
+
+networks:
+  my-network:

@@ -1,0 +1,22 @@
+POST http://localhost:8080/databases/add
+Content-Type: application/json
+
+{
+  "url" : "jdbc:mysql://localhost:3306/db_name",
+  "username": "root",
+  "password": "0000"
+}
+###
+GET http://localhost:8080/databases/all
+###
+DELETE http://localhost:8080/databases/delete/1
+###
+GET http://localhost:8080/problems/all
+###
+POST http://localhost:8080/problems/add
+Content-Type: application/json
+
+{
+  "title" : "testworld",
+  "description": "rootworld"
+}

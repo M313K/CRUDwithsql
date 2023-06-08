@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pb of problems" >
+        <th scope="row" >{{pb.id}}</th>
+        <td>{{pb.title}}</td>
+        <td>{{pb.description}}</td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" (click)="updateProblem(pb.id)" class="btn btn-success">Update</button>
+                <button type="button" (click)="deleteProblem(pb.id)" class="btn btn-danger">Delete</button>
+            </div>
+        </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
